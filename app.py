@@ -9,5 +9,10 @@ def hello():
     count = redis.incr('hits')
     return 'Hello from Docker! I have been seen {} times.\n'.format(count)
 
+@app.route('/goodbye')
+def goodbye():
+    count = redis.incr('hits')
+    return 'Goodbye! I have been seen {} times.\n'.format(count)
+
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', debug = True)
